@@ -1,0 +1,40 @@
+[DeviceName]
+Value=P16F690
+[DeviceClock]
+Value=4
+[MainUnit]
+Value=Valvulas.pbas
+[DeviceFlags]
+Count=10
+Value0=_FCMEN_OFF = $37FF
+Value1=_IESO_OFF = $3BFF
+Value2=_BOR_OFF = $3CFF
+Value3=_CPD_OFF = $3FFF
+Value4=_CP_OFF = $3FFF
+Value5=_MCLRE_OFF = $3FDF
+Value6=_PWRTE_ON = $3FEF
+Value7=_WDT_OFF = $3FF7
+Value8=_INTRC_OSC_NOCLKOUT = $3FFC
+Value9=_EXTRC_OSC_NOCLKOUT = $3FFE
+[BuildSimDebug]
+Build=0
+SimDebug=0
+[ProjectFiles]
+Count=0
+[OtherFiles]
+Count=1
+Value0=D:\Arquivos\Aulas\Valvula\Valvulas\Valvulas.pbas
+Value1=F:\Downloads\Aula 2026-03-30 - Display LCD com PIC 16F690\Aula 2026-03-30 - Display LCD com PIC 16F690\LCDPIC16F690.pbas
+[TabIndex]
+Value=0
+[SearchPath]
+Count=7
+Value0=C:\Program Files (x86)\Mikroelektronika\mikroBasic\Defs\
+Value1=C:\Program Files (x86)\Mikroelektronika\mikroBasic\Uses\p16\
+Value2=D:\Arquivos\Aulas\Valvula\Valvulas\
+Value3=D:\Arquivos\Aulas\valvulas\
+Value4=C:\Users\gabri\Desktop\valvulas\
+Value5=D:\Arquivos\Programas\mikroBasic\Defs\
+Value6=D:\Arquivos\Programas\mikroBasic\Uses\p16\
+[EEPROMinfo]
+isused=0

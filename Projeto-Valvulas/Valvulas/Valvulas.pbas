@@ -1,0 +1,84 @@
+program Valvulas
+dim contador as integer
+dim texto    as string[4]
+
+dim leituraTanque as word
+dim valorTanque   as byte ' valorTanque = potenciometro (tanque)
+
+dim leituraPot1 as word
+dim valorPot1   as byte ' potV1 = potenciometro (primeira valvula)
+
+dim leituraPot2 as word
+dim valorPot2   as byte ' potV2 = potenciometro (segunda valvula)
+
+dim leituraPot3 as word
+dim valorPot3   as byte ' potV3 = potenciometro (terceira valvula)
+
+main:
+TRISA= %00010111
+TRISB= %00000000
+INTCON=%00000000
+ANSEL= %00001111
+ANSELH=%00000000
+
+PORTC=0
+LCD_INIT(PORTC)
+LCD_CMD(Lcd_Cursor_Off)
+LCD_CMD(Lcd_Clear)
+
+portb=0
+executa:
+        leituraTanque = Adc_Read(0)
+        valorTanque = (LongInt(leituraTanque) * 150) / 1023
+        
+        leituraPot1 = Adc_Read(1)
+        valorPot1 =(LongInt(leituraPot1) * 150) / 1023
+        
+        leituraPot2 = Adc_Read(2)
+        valorPot2 =(LongInt(leituraPot2) * 150) / 1023
+
+        leituraPot3 = Adc_Read(3)
+        valorPot3 =(LongInt(leituraPot3) * 150) / 1023
+        
+        '1ªValvula
+        if(valorTanque <= valorPot1) then
+            portb.4 = 1    'led ligado temperatura ok
+        else
+            portb.4 = 0    'led desligado valvula fechada
+        end if
+        
+        '2ªValvula
+        if(valorTanque <= valorPot2) then
+            portb.5 = 1    'led ligado temperatura ok
+        else
+            portb.5 = 0    'led desligado valvula fechada
+        end if
+        
+         '3ªValvula
+        if(valorTanque <= valorPot3) then
+            portb.6 = 1    'led ligado temperatura ok
+        else
+            portb.6 = 0    'led desligado valvula fechada
+        end if
+        
+
+        Lcd_Out(1,1,"Tanque:   C ")
+        ByteToStr(valorTanque,texto)
+        Lcd_Out(1,8,texto)
+        
+        Lcd_Out(2,1,"1a Valvula:   C ")
+        ByteToStr(valorPot1, texto)
+        Lcd_Out(2,12, texto)
+'
+        Lcd_Out(3,1,"2a Valvula:   C ")
+        ByteToStr(valorPot2, texto)
+        Lcd_Out(3,12, texto)
+        
+        Lcd_Out(4,1,"3a Valvula:   C ")
+
+       ByteToStr(valorPot3, texto)
+        Lcd_Out(4,12, texto)
+
+        delay_ms(1000)
+        goto executa
+end.
