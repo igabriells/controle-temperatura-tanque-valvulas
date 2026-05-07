@@ -1,3 +1,5 @@
+Este projeto consiste em um sistema de controle de vazão de líquidos em tanques, baseado na temperatura. O sistema monitora o calor e gerencia a abertura/fechamento de três válvulas independentes conforme parâmetros definidos pelo operador.
+
 O sistema opera na faixa de 0°C a 150°C. Através de três potenciômetros, o operador define o limite de temperatura para cada uma das três válvulas (representadas por LEDs).
 
 Lógica:
